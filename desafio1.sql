@@ -4,14 +4,15 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
-CREATE TABLE `plans`(
+CREATE TABLE SpotifyClone.`plans`(
     `plan_id` INT AUTO_INCREMENT NOT NULL,
     `plan` VARCHAR(100) NOT NULL,
     `value` DECIMAL (4, 2),
     PRIMARY KEY (`plan_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `users`(
+
+CREATE TABLE SpotifyClone.`users`(
     `user_id` INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(100) NOT NULL,
     `age` INT NOT NULL,
@@ -21,13 +22,13 @@ CREATE TABLE `users`(
     FOREIGN KEY (`plan_fk`) REFERENCES `SpotifyClone`.`plans`(`plan_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `artists`(
+CREATE TABLE SpotifyClone.`artists`(
     `artist_id` INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(100) NOT NULL,
     PRIMARY KEY (`artist_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `follows`(
+CREATE TABLE SpotifyClone.`follows`(
     `follow_id` INT NOT NULL AUTO_INCREMENT,
     `user_fk` INT NOT NULL,
     `artist_fk` INT NOT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE `follows`(
     FOREIGN KEY (`artist_fk`) REFERENCES `SpotifyClone`.`artists`(`artist_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `albuns`(
+CREATE TABLE SpotifyClone.`albuns`(
     `album_id` INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(150) NOT NULL,
     `artist_fk` INT NOT NULL,
@@ -44,7 +45,7 @@ CREATE TABLE `albuns`(
     FOREIGN KEY (`artist_fk`) REFERENCES `SpotifyClone`.`artists`(`artist_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `sounds`(
+CREATE TABLE SpotifyClone.`sounds`(
     `sound_id` INT AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(150) NOT NULL,
     `duration` INT NOT NULL,
@@ -53,7 +54,7 @@ CREATE TABLE `sounds`(
     FOREIGN KEY (`album_fk`) REFERENCES `SpotifyClone`.`albuns`(`album_id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `history_reproduction`(
+CREATE TABLE SpotifyClone.`history_reproduction`(
     `history_id` INT NOT NULL AUTO_INCREMENT,
     `user_fk` INT NOT NULL,
     `sound_fk` INT NOT NULL,
@@ -64,14 +65,14 @@ CREATE TABLE `history_reproduction`(
 ) ENGINE = InnoDB;
 
 
-INSERT INTO `plans` (`plan`, `value`)
+INSERT INTO SpotifyClone.`plans` (`plan`, `value`)
 VALUES
   ('gratuito', '0.00'),
   ('universitário', '5.99'),
   ('pessoal', '6.99'),
   ('familiar', '7.99');
 
-INSERT INTO `users` (`name`, `age`, `signature_date`, `plan_fk`)
+INSERT INTO SpotifyClone.`users` (`name`, `age`, `signature_date`, `plan_fk`)
 VALUES
   ('Thati', 23, '2019-10-20', 1),
   ('Cintia', 35, '2017-12-30', 4),
@@ -84,7 +85,7 @@ VALUES
   ('Angelina', 42, '2018-04-29', 4),
   ('Paul', 46, '2017-01-17', 4);
   
-INSERT INTO `artists` (`name`)
+INSERT INTO SpotifyClone.`artists` (`name`)
 VALUES
   ('Walter Phoenix'),
   ('Peter Strong'),
@@ -93,7 +94,7 @@ VALUES
   ('Tyler Isle'),
   ('Fog');
   
-INSERT INTO `follows` (`user_fk`, `artist_fk`)
+INSERT INTO SpotifyClone.`follows` (`user_fk`, `artist_fk`)
 VALUES
   (1, 1),
   (1, 4),
@@ -118,7 +119,7 @@ VALUES
   (10, 2),
   (10, 6);
   
-INSERT INTO `albuns` (`name`, `artist_fk`)
+INSERT INTO SpotifyClone.`albuns` (`name`, `artist_fk`)
 VALUES
   ('Envious', 1),
   ('Exuberant', 1),
@@ -131,7 +132,7 @@ VALUES
   ('No guarantees', 5),
   ('Apparatus', 6);
   
-INSERT INTO `sounds` (`name`, `duration`, `album_fk`)
+INSERT INTO SpotifyClone.`sounds` (`name`, `duration`, `album_fk`)
 VALUES
   ("Soul For Us", 200, 1),
   ("Reflections Of Magic", 163, 1),
@@ -174,7 +175,7 @@ VALUES
   ("Baby", 136, 10),
   ("You Make Me Feel So..", 83, 10);
   
-INSERT INTO `history_reproduction` (`user_fk`, `sound_fk`, `date_reproduction`)
+INSERT INTO SpotifyClone.`history_reproduction` (`user_fk`, `sound_fk`, `date_reproduction`)
 VALUES
   (1, 36, '2020-02-28 10:45:55'),
   (1, 25, '2020-05-02 05:30:35'),
