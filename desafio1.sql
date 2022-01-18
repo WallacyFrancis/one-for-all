@@ -28,8 +28,10 @@ CREATE TABLE `artists`(
 ) ENGINE = InnoDB;
 
 CREATE TABLE `follows`(
+    `follow_id` INT NOT NULL AUTO_INCREMENT,
     `user_fk` INT NOT NULL,
     `artist_fk` INT NOT NULL,
+    PRIMARY KEY (`follow_id`),
     FOREIGN KEY (`user_fk`) REFERENCES `SpotifyClone`.`users`(`user_id`),
     FOREIGN KEY (`artist_fk`) REFERENCES `SpotifyClone`.`artists`(`artist_id`)
 ) ENGINE = InnoDB;
@@ -52,9 +54,11 @@ CREATE TABLE `sounds`(
 ) ENGINE = InnoDB;
 
 CREATE TABLE `history_reproduction`(
+    `history_id` INT NOT NULL AUTO_INCREMENT,
     `user_fk` INT NOT NULL,
     `sound_fk` INT NOT NULL,
     `date_reproduction` DATETIME NOT NULL,
+    PRIMARY KEY (`history_id`),
     FOREIGN KEY (`user_fk`) REFERENCES `SpotifyClone`.`users`(`user_id`),
     FOREIGN KEY (`sound_fk`) REFERENCES `SpotifyClone`.`sounds`(`sound_id`)
 ) ENGINE = InnoDB;
