@@ -1,4 +1,4 @@
-SELECT user.`name` AS usuario,
+SELECT user.name AS usuario,
 COUNT(ouvidas.user_fk) AS qtde_musicas_ouvidas,
 ROUND(SUM(musicas.duration) / 60, 2) AS total_minuto
 FROM SpotifyClone.users AS user
