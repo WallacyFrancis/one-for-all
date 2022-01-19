@@ -9,8 +9,8 @@
   "tabela_que_contem_seguindo_artistas": "follows",
   "coluna_artista": "name",
   "tabela_que_contem_artista": "artists",
-  "coluna_album": "artist_fk",
+  "coluna_album": "name",
   "tabela_que_contem_album": "albuns",
-  "coluna_cancoes": "album_fk",
+  "coluna_cancoes": "name",
   "tabela_que_contem_cancoes": "sounds"
 }
